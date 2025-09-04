@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    {
+      "source": "/cv/(.*)",
+      "destination": "/$1"
+    }
+  ],
+  "basePath": "/cv",
+  "trailingSlash": false
+}
