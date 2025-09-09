@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV Maker - Il Tool che Ho Sviluppato</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <h1><a href="../index.html">filippo---raw</a></h1>
+        <div class="header-controls">
+          <a href="https://app.filippo---raw.com" class="app-link">App</a>
+          <div class="switch-wrapper">
+            <label class="switch">
+              <input type="checkbox" id="dark-toggle">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <p><a href="../index.html">← Torna alla home</a></p>
+
+      <article>
+        <h2>CV Maker - Il Tool che Ho Sviluppato</h2>
+        <p class="post-date">Pubblicato il 15 Settembre 2025</p>
+
+        <p>Tante volte mi è capitato di aprire quel vecchio file Word del CV, solo per scoprire che la formattazione si era completamente sballata. O di dover rifare da capo la cover letter perché quella precedente non si adattava alla nuova posizione. Se anche a te è successo, allora capirai perfettamente cosa mi ha spinto a creare questo tool.</p>
+
+        <hr>
+
+        <h3><strong>La Mia Soluzione</strong></h3>
+        <p>Così ho deciso di sviluppare l'app che trovi su <a href="https://app.filippo---raw.com">app.filippo---raw.com</a>. Il mio obiettivo era semplice: creare uno strumento che risolvesse i problemi che ho riscontrato.</p>
+
+        <p>Personalmente ho un CV base che funge da template principale. Da questo punto di partenza, posso facilmente adattare contenuti e focus per ogni specifica posizione, senza dover ripartire da zero ogni volta.</p>
+
+        <p>Quindi per candidarmi cosa dovevo fare? Sistemare il CV, adattarlo alla Job description, scrivere una cover letter con la stessa identità visiva del CV, questo per garantire coerenza.</p>
+
+        <p>Ho studiato come funzionano gli Application Tracking System (ATS) e ho ottimizzato l'impaginazione per essere non solo bella da vedere, ma anche compatibile con questi sistemi automatici.</p>
+
+        <hr>
+
+        <h3><strong>Cos'è cv---maker?</strong></h3>
+        <p>Un tool disponibile online che ho sviluppato per semplificarmi il processo noioso del CV. Nulla di rivoluzionario, ma a me è tornato molto utile e credo possa aiutare anche qualcun'altro.</p>
+
+        <p><strong>Vai al sito e provalo:</strong></p>
+        <ul>
+          <li>Scegli se vuoi costruire un CV o una Cover letter</li>
+          <li>Compila i campi preimpostati</li>
+          <li>Scegli il tema, il font e i colori</li>
+          <li>Sezioni modificabili e trascinabili</li>
+          <li>Download del PDF ultraleggero</li>
+        </ul>
+
+        <p><em>Nuovi temi con foto e nuove funzioni prossimamente.</em></p>
+
+        <hr>
+
+        <h3><strong>🔒 Privacy e Sicurezza</strong></h3>
+        
+        <h4><strong>Nessun Account Richiesto</strong></h4>
+        <ul>
+          <li>Non è necessario registrarsi o creare un account</li>
+          <li>Non raccogliamo email, password o dati personali</li>
+        </ul>
+
+        <h4><strong>Dati Solo Locali</strong></h4>
+        <ul>
+          <li>Tutti i tuoi dati (CV, cover letter, informazioni personali) vengono salvati esclusivamente sul tuo dispositivo</li>
+          <li>Utilizza solo il localStorage del browser, nessun server esterno</li>
+          <li>I tuoi dati non lasciano mai il tuo computer</li>
+        </ul>
+
+        <h4><strong>Nessun Tracciamento</strong></h4>
+        <ul>
+          <li>Non utilizza cookie di tracciamento</li>
+          <li>Non raccoglie statistiche di utilizzo</li>
+          <li>Non condivide dati con terze parti</li>
+        </ul>
+
+        <hr>
+
+        <h3><strong>La Parte Tecnica: Come Ho Sviluppato il Tool</strong></h3>
+        <p>Ho iniziato studiando Open Resume, un software open source che ho trovato su GitHub. Mi piaceva l'approccio del progetto, ma sentivo che mancavano alcune funzionalità che per me erano essenziali. Ho creato una fork del repository originale e ho iniziato a sviluppare la mia versione personalizzata. Le prime modifiche che ho implementato sono state:</p>
+
+        <ul>
+          <li><strong>Nuovi font personalizzati</strong>: Ho integrato caratteri tipografici più moderni e professionali</li>
+          <li><strong>Sistema di temi flessibile</strong>: Ho sviluppato la possibilità di modificare layout e stile in tempo reale</li>
+          <li><strong>Layout "Minimal"</strong>: Ho creato un nuovo design pulito e ottimizzato per gli ATS</li>
+        </ul>
+
+        <hr>
+
+        <h3><strong>Il Problema del Parser (E Come L'Ho Risolto)</strong></h3>
+        <p>Qui ho incontrato una delle sfide tecniche più interessanti. L'applicazione non utilizza intelligenza artificiale, tutto il processo di lettura dei PDF è puramente algoritmico e matematico. Questo approccio ha i suoi vantaggi in termini di privacy e velocità, ma presentava problemi di compatibilità quando si riprendeva a modificare un documento.</p>
+
+        <p>La mia soluzione è stata elegante: ho inserito nei metadata del PDF generato lo stesso contenuto in formato JSON. In pratica, ogni PDF che creo contiene al suo interno una "copia nascosta" di tutti i dati strutturati. Quando riapro il documento per modificarlo, l'applicazione legge questi metadata invece di dover interpretare il testo formattato, eliminando completamente gli errori di parsing.</p>
+
+        <hr>
+
+        <h3><strong>L'Aggiunta della Cover Letter</strong></h3>
+        <p>Inizialmente il tool gestiva solo CV, ma io avevo bisogno anche di una soluzione per le cover letter. Ho quindi sviluppato:</p>
+
+        <ul>
+          <li><strong>Due layout dedicati</strong>: Uno più formale e uno più moderno</li>
+          <li><strong>Sezioni personalizzabili</strong>: Per adattare il contenuto a diverse tipologie di posizioni</li>
+          <li><strong>Coordinamento automatico</strong>: La cover letter eredita automaticamente il tema scelto per il CV</li>
+        </ul>
+
+        <hr>
+
+        <h3><strong>Perché niente AI</strong></h3>
+        <p>Ho scelto di mantenere l'approccio "no-AI" per diversi motivi: maggiore controllo sui risultati, privacy totale dei dati (tutto viene processato localmente), e velocità di elaborazione. Non c'è nessun server esterno che analizza i tuoi dati personali.</p>
+
+        <p>Il risultato è un tool che fa esattamente quello che serve, senza fronzoli inutili, ma con la solidità tecnica necessaria per un uso professionale quotidiano.</p>
+
+        <hr>
+
+        <h3><strong>Roadmap CV Tool</strong></h3>
+        <p><em>Le prossime funzionalità in arrivo</em></p>
+
+        <div class="roadmap-wrapper">
+          <div class="roadmap-timeline">
+            <div class="phase-card completed">
+              <div class="status-badge"></div>
+              <div class="phase-number">1</div>
+              <div class="phase-title">Tool Core</div>
+              <div class="phase-date">Set 2025</div>
+              <div class="phase-description">
+                Stabilità e miglioramenti dell'esperienza utente
+              </div>
+              <ul class="phase-features">
+                <li>Bug fixing</li>
+                <li>Raccolta feedback</li>
+                <li>Performance</li>
+              </ul>
+            </div>
+
+            <div class="phase-card current">
+              <div class="status-badge"></div>
+              <div class="phase-number">2</div>
+              <div class="phase-title">Nuovi Stili</div>
+              <div class="phase-date">Nov 2025</div>
+              <div class="phase-description">
+                Template moderni e supporto foto integrate
+              </div>
+              <ul class="phase-features">
+                <li>5+ template</li>
+                <li>Foto integrate</li>
+                <li>Personalizzazione</li>
+              </ul>
+            </div>
+
+            <div class="phase-card">
+              <div class="status-badge"></div>
+              <div class="phase-number">3</div>
+              <div class="phase-title">App Desktop</div>
+              <div class="phase-date">2026</div>
+              <div class="phase-description">
+                Versioni scaricabili per PC e Mac
+              </div>
+              <ul class="phase-features">
+                <li>Windows app</li>
+                <li>macOS app</li>
+                <li>Offline mode</li>
+              </ul>
+            </div>
+
+            <div class="phase-card">
+              <div class="status-badge"></div>
+              <div class="phase-number">4</div>
+              <div class="phase-title">AI Integration</div>
+              <div class="phase-date">2026</div>
+              <div class="phase-description">
+                LLM per ottimizzazione CV basata su job post
+              </div>
+              <ul class="phase-features">
+                <li>Analisi job post</li>
+                <li>CV custom</li>
+                <li>Cover letter AI</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <hr>
+
+        <p><strong>Vuoi provare il tool che ho sviluppato?</strong> Visita <a href="https://app.filippo---raw.com">app.filippo---raw.com</a></p>
+
+      </article>
+    </main>
+
+    <footer>
+      <p>--- 2025 ---</p>
+      <p>rawfilippo@gmail.com</p>
+    </footer>
+  </div>
+
+  <style>
+    /* Roadmap styles */
+    .roadmap-wrapper {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin: 20px 0;
+    }
+
+    .roadmap-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      max-width: 100%;
+    }
+
+    .phase-card {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      position: relative;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .phase-card:nth-child(1) { animation-delay: 0.1s; }
+    .phase-card:nth-child(2) { animation-delay: 0.2s; }
+    .phase-card:nth-child(3) { animation-delay: 0.3s; }
+    .phase-card:nth-child(4) { animation-delay: 0.4s; }
+    .phase-card:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .phase-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+      border-color: #ddd;
+    }
+
+    .phase-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      color: #666;
+      font-size: 0.8rem;
+      font-family: "Courier Prime", monospace;
+      line-height: 28px;
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+
+    .phase-card.current .phase-number {
+      background: #fff3cd;
+      color: #856404;
+      border: 2px solid #ffeaa7;
+    }
+
+    .phase-card.completed .phase-number {
+      background: #d4edda;
+      color: #155724;
+      border: 2px solid #c3e6cb;
+    }
+
+    .phase-title {
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: #222;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .phase-date {
+      font-size: 0.7rem;
+      color: #999;
+      font-family: "Courier Prime", monospace;
+      margin-bottom: 10px;
+    }
+
+    .phase-description {
+      font-size: 0.75rem;
+      color: #666;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .phase-features {
+      list-style: none;
+      padding: 0;
+      font-size: 0.7rem;
+      color: #777;
+    }
+
+    .phase-features li {
+      padding: 2px 0;
+      position: relative;
+    }
+
+    .phase-features li::before {
+      content: '•';
+      color: #ccc;
+      margin-right: 6px;
+    }
+
+    .status-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e9ecef;
+    }
+
+    .phase-card.current .status-badge {
+      background: #ffc107;
+      animation: pulse 2s infinite;
+    }
+
+    .phase-card.completed .status-badge {
+      background: #28a745;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Connessione tra card */
+    .phase-card::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid #e5e5e5;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .phase-card:last-child::after {
+      display: none;
+    }
+
+    /* Dark mode support */
+    body.dark-mode .roadmap-wrapper {
+      background: #2a2a2a;
+      border: 1px solid #444;
+    }
+
+    body.dark-mode .phase-card {
+      background: #333;
+      border-color: #555;
+      color: #f1f1f1;
+    }
+
+    body.dark-mode .phase-card:hover {
+      border-color: #777;
+    }
+
+    body.dark-mode .phase-title {
+      color: #f1f1f1;
+    }
+
+    body.dark-mode .phase-description {
+      color: #ccc;
+    }
+
+    body.dark-mode .phase-features {
+      color: #aaa;
+    }
+
+    body.dark-mode .phase-features li::before {
+      color: #666;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .roadmap-timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .phase-card::after {
+        display: none;
+      }
+
+      .roadmap-wrapper {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .roadmap-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap-wrapper {
+        padding: 15px;
+      }
+    }
+  </style>
+
+  <script>
+    // Toggle dark mode
+    const darkToggle = document.getElementById('dark-toggle');
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      document.body.classList.add('dark-mode');
+      darkToggle.checked = true;
+    }
+
+    darkToggle.addEventListener('change', () => {
+      if (darkToggle.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
+</body>
+</html>
