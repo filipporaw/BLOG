@@ -1,9 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/cv/(.*)",
-      "destination": "/$1"
-    }
-  ],
-  "trailingSlash": false
-}
