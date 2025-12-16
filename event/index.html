@@ -2,8 +2,11 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Medtronic - Harmony National Implanters Meeting</title>
+    <meta property="og:title" content="Medtronic - Harmony National Implanters Meeting">
+    <meta property="og:description" content="26-27 Marzo 2026 • Via Varesina 162, Milano">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +17,18 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
             font-family: 'DM Sans', sans-serif;
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #F5F5F5;
-            padding: 20px;
+            padding: 10px;
         }
 
         .event-card {
@@ -190,63 +197,67 @@
 
         @media (max-width: 480px) {
             body {
-                padding: 10px;
+                padding: 8px;
+            }
+            .event-card {
+                border-radius: 14px;
             }
             .event-header {
-                padding: 16px 16px;
+                padding: 12px 14px;
             }
             .event-title {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             .event-date-badge {
-                padding: 5px 10px;
-                font-size: 0.75rem;
-                margin-bottom: 10px;
+                padding: 4px 8px;
+                font-size: 0.7rem;
+                margin-bottom: 8px;
             }
             .event-body {
-                padding: 14px 16px;
+                padding: 12px 14px;
             }
             .event-detail {
-                margin-bottom: 12px;
-                gap: 10px;
+                margin-bottom: 10px;
+                gap: 8px;
             }
             .event-icon {
-                width: 32px;
-                height: 32px;
-                border-radius: 8px;
+                width: 28px;
+                height: 28px;
+                border-radius: 6px;
             }
             .event-icon svg {
-                width: 16px;
-                height: 16px;
-            }
-            .event-detail-content h4 {
-                font-size: 0.7rem;
-                margin-bottom: 2px;
-            }
-            .event-detail-content p {
-                font-size: 0.85rem;
-            }
-            .event-description {
-                font-size: 0.8rem;
-            }
-            .event-footer {
-                padding: 0 16px 14px;
-            }
-            .calendar-label {
-                font-size: 0.75rem;
-                margin-bottom: 10px;
-            }
-            .calendar-options {
-                gap: 6px;
-            }
-            .cal-btn {
-                padding: 8px 10px;
-                font-size: 0.7rem;
-                border-radius: 8px;
-            }
-            .cal-btn svg {
                 width: 14px;
                 height: 14px;
+            }
+            .event-detail-content h4 {
+                font-size: 0.65rem;
+                margin-bottom: 1px;
+            }
+            .event-detail-content p {
+                font-size: 0.8rem;
+            }
+            .event-description {
+                font-size: 0.75rem;
+                line-height: 1.4;
+            }
+            .event-footer {
+                padding: 0 14px 12px;
+            }
+            .calendar-label {
+                font-size: 0.7rem;
+                margin-bottom: 8px;
+            }
+            .calendar-options {
+                gap: 5px;
+            }
+            .cal-btn {
+                padding: 6px 8px;
+                font-size: 0.65rem;
+                border-radius: 6px;
+            }
+            .cal-btn svg {
+                width: 12px;
+                height: 12px;
             }
         }
     </style>
